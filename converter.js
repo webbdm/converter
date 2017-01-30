@@ -8,12 +8,15 @@ function toCelsius () {
 
 	outputC = (5/9) * (inputNum - 32);
 
+	return outputC
 
 }
 
 function toFahrenheit () {
 
 	outputF = (9/5) * (inputNum + 32);
+
+	return outputF
 
 }
 
@@ -24,6 +27,11 @@ var element = document.getElementById("converTemp");
 // This function should determine which conversion should
 // happen based on which radio button is selected.
 function determineConverter (clickEvent) {
+  
+	if 
+
+
+
   console.log("event", clickEvent);
 }
 
