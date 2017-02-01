@@ -1,85 +1,105 @@
-var inputNum = 74; //document.getElementById("initialTemp").value;
+// Get a reference to the button element in the DOM and the converter DIV
+var button = document.getElementById("converter");
+//var convertedNum = document.getElementById("convertedTemp");
+var unit = document.getElementsByClassName("unit");
+// Assign a function to be executed when the button is clicked
+button.addEventListener("click", determineConverter);
+
+
+// console.log(button);
+// console.log(unit[0].value, unit[1].value);
+
+// Conversion Functions
+var inputNum = 60 //document.getElementById("initialTemp").value;
 console.log(inputNum);
 
 function toCelsius (temp) {
 
-	document.getElementById("convertedTemp").innerHTML = (temp - 32) * (5/9);
+  document.getElementById("convertedTemp").innerHTML = (temp - 32) * (5/9);
   var newCelTemp = document.getElementById("convertedTemp").innerHTML;
   console.log("Converted to Cel temp", newCelTemp, inputNum);
+  
   
 }
 
 function toFahrenheit (temp) {
 
-	document.getElementById("convertedTemp").innerHTML = temp * (9/5) + 32;
+  document.getElementById("convertedTemp").innerHTML = temp * (9/5) + 32;
   var newFahTemp = document.getElementById("convertedTemp").innerHTML;
   console.log("Converted to Fah temp", newFahTemp, inputNum);
   
+  
 }
 
-
-// toCelsius(inputNum);
-// toFahrenheit(inputNum);
-
-// Get a reference to the button element in the DOM and the converter DIV
-var button = document.getElementById("converter");
-var convertedNum = document.getElementById("convertedTemp");
-
-var radioF = document.getElementById("radioF");
-var radioC = document.getElementById("radioC");
-
-radioC.checked = true;
-radioF.checked = true;
-
-
-// radio.addEventListener("click", function(clickEvent) {
-//     var checkedButton = clickEvent.target.value;
-//   });
-
-// radio.addEventListener("click", function(clickEvent) {
-//     var checkedButton = clickEvent.target.value;
-//   });
-
-
-
-
-// This function should determine which conversion should
-// happen based on which radio button is selected.
+// Determine Conversions
 function determineConverter (clickEvent) {
+
+var checkedButton = "";
   
-  if (radioC === "true"){
-    
+  if (unit.item(0).checked) {
+      checkedButton = "celsius";
+    } else if (unit.item(1).checked) {
+      checkedButton = "fahrenheit"; 
+    } else {
+      alert("Select Fahrenheit or Celsius");
+    }
+  
+  if (checkedButton === "celsius"){
       toFahrenheit(inputNum);
       console.log("radioC is checked");
   }
   
-  if (radioF === "true"){
+  if (checkedButton === "fahrenheit"){
     
       toCelsius(inputNum);   
-    	console.log("radioF is checked");
+      console.log("radioF is checked");
   }
   
-  console.log("event", clickEvent);
 }
 
 
-
-
-// Assign a function to be executed when the button is clicked
-button.addEventListener("click", determineConverter);
-
-// // Conditionals that changes converTemp color
+// Conditionals that changes converTemp color
 
 // if (newCelTemp > 32 || newFahTemp > 90 ) {
 
-// 	//change text color to red
+//   console.log("hot temperature");
 
 // } else if (newCelTemp < 0 || newFahTemp < 32 ) {
 
-// 	//change text color to blue
+//   console.log("cold temperature");
 
 // } else {
 
-// 	//change text color to green
+//   console.log("normal temperature");
 
 // }
+
+
+// Old loop for radio buttons
+
+// for (var i = 0; i < unit.length; i++) {
+//   console.log("radio index", unit[i]);
+//   unit[i].addEventListener("click", function(clickEvent) {
+          
+//           var checkedButton = "";
+//           console.log("clickEvent", clickEvent);
+//           checkedButton = clickEvent.target.value;
+//           console.log("checkedButton", checkedButton);
+//   });
+// };
+
+
+
+// Old variables
+
+// // Get a reference to the button element in the DOM and the converter DIV
+// var button = document.getElementById("converter");
+// //var convertedNum = document.getElementById("convertedTemp");
+// var unit = document.getElementsByClassName("unit");
+
+// // Assign a function to be executed when the button is clicked
+// button.addEventListener("click", determineConverter);
+
+
+// // console.log(button);
+// // console.log(unit[0].value, unit[1].value);
