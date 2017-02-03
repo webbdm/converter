@@ -10,7 +10,7 @@ button.addEventListener("click", determineConverter);
 // console.log(unit[0].value, unit[1].value);
 
 // Conversion Functions
-var inputNum = 60 //document.getElementById("initialTemp").value;
+var inputNum = document.getElementById("initialTemp");
 console.log(inputNum);
 
 function toCelsius (temp) {
@@ -45,37 +45,38 @@ var checkedButton = "";
     }
   
   if (checkedButton === "celsius"){
-      toFahrenheit(inputNum);
+      toFahrenheit(inputNum.value);
       console.log("radioC is checked");
   }
   
   if (checkedButton === "fahrenheit"){
     
-      toCelsius(inputNum);   
+      toCelsius(inputNum.value);   
       console.log("radioF is checked");
   }
   
+  console.log("event", clickEvent);
 }
 
 
 // Conditionals that changes converTemp color
 
-// if (newCelTemp > 32 || newFahTemp > 90 ) {
+if (newCelTemp > 32 || newFahTemp > 90 ) {
 
-//   console.log("hot temperature");
+  console.log("hot temperature");
 
-// } else if (newCelTemp < 0 || newFahTemp < 32 ) {
+} else if (newCelTemp < 0 || newFahTemp < 32 ) {
 
-//   console.log("cold temperature");
+  console.log("cold temperature");
 
-// } else {
+} else {
 
-//   console.log("normal temperature");
+  console.log("normal temperature");
 
-// }
+}
 
 
-// Old loop for radio buttons
+// Old loop for radio buttons. This was a horrible method, I do not recommend this voodoo.
 
 // for (var i = 0; i < unit.length; i++) {
 //   console.log("radio index", unit[i]);
