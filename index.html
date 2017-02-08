@@ -3,12 +3,12 @@
 <head>
 	<title>Converter</title>
 
-	<!-- <link href="converterstyles.css" rel="stylesheet" type="text/css"> -->
+	<link href="converter.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <h1>Converter!!!</h1>
 
-<form>
+<form id="tempForm">
 
 <label for="temp">Temperature</label>	
 <input type="text" name="temp" id="initialTemp">
@@ -20,7 +20,7 @@
 
 <div id="convertedTemp"></div>
 <button id="converter" type="button">Convert</button>
-<button type="button">Clear</button>
+<button type="button" onclick="clearButton()">Clear</button>
 
 
 </form>
